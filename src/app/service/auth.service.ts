@@ -14,11 +14,11 @@ export class AuthService {
   ) { }
 
   logar(userLogin: UserLoginDTO): Observable<UserLoginDTO>{
-    return this.http.post<UserLoginDTO>('http://localhost:8080/usuarios/logar', userLogin)
+    return this.http.post<UserLoginDTO>('https://reconect.herokuapp.com/usuarios/logar', userLogin)
   }
 
-  cadastrar(usuario: UsuarioModel): Observable<UsuarioModel>{
-    return this.http.post<UsuarioModel>('http://localhost:8080/usuarios/cadastrar', usuario)
+  cadastrar(usuario: UsuarioModel):Observable<UsuarioModel>{
+    return this.http.post<UsuarioModel>('https://reconect.herokuapp.com/usuarios/cadastrar', usuario)
   }
   
 }
