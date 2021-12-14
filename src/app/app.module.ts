@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -10,6 +10,7 @@ import { RodapeComponent } from './rodape/rodape.component';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { FeedComponent } from './feed/feed.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { InicioComponent } from './inicio/inicio.component';
     RodapeComponent,
     LoginComponent,
     CadastroComponent,
-    InicioComponent
+    InicioComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,
