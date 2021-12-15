@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { PostagemModel } from '../model/PostagemModel';
 import { TemaModel } from '../model/TemaModel';
-import { UserLoginDTO } from '../model/UserLoginDTO';
+import { UsuarioModel } from '../model/UsuarioModel';
 import { PostagensService } from '../service/postagens.service';
 import { TemaService } from '../service/tema.service';
 
@@ -19,7 +19,7 @@ export class FeedComponent implements OnInit {
   idTema: number
 
   idUsuario = environment.id
-  usuario: UserLoginDTO = new UserLoginDTO()
+  usuario: UsuarioModel = new UsuarioModel()
 
   postagem: PostagemModel = new PostagemModel()
   listaPostagem: PostagemModel[]
@@ -74,4 +74,4 @@ export class FeedComponent implements OnInit {
   }
 
   
-  }
+}
