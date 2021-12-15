@@ -1,3 +1,4 @@
+import { PostagemModel } from "./PostagemModel"
 
 export class UserLoginDTO{
   public id: number
