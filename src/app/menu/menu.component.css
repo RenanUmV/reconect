@@ -1,87 +1,31 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:500");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background-color: #0072b1;
-}
 
-li, a, button{
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    color: #edf0f1;
+ul li a {
+    font-family: 'Poppins';
+    font-weight: bolder;
     text-decoration: none;
 }
 
-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 10%;
+.nav-bar {
+    background-color: #0072b1;
 }
 
-.logo{
-    cursor: pointer;
+.nav-bar a {
+    font-family: 'Poppins';
+    text-decoration: none;
+    font-weight: bolder;
 }
 
-.nav__links{
-    list-style: none;
-}
-
-.nav__links li{
-    display: inline-block;
-    padding: 0px 20px;
-}
-
-.nav__links li a{
-    transition: all 0.3s ease 0s;    
-}
-
-.nav__links li a:hover{
-    color: #0088a9;
-}
-
-.button{
-    padding: 9px 25px;
-    background-color: rgba(0, 136, 169,1);
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-}
-
-.btn-cadastrar{
-    color: #c5c2c2;
-}
-
-.btn-cadastrar:hover{
-    transition: all 0.3s ease 0s;
-    color: #807d7d;
-}
-
-.btn-entrar{
-    color: #00b167;
-}
-
-.btn-entrar:hover{
-    transition: all 0.3s ease 0s;
-    color: #0cec69;    
-}
-
-.button:hover{
-    background-color: rgba(0, 136, 169,0.8);
+.fs-18 {
+    font-size: 18pt;
 }
 
 .fs-16 {
     font-size: 16pt;
 }
 
-.fs-14 {
-    font-size: 14pt;
-}
-
-a{
+a {
     cursor: pointer;
 }
