@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { FeedComponent } from './feed/feed.component';
+import { TemaComponent } from './tema/tema.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FeedComponent } from './feed/feed.component';
     LoginComponent,
     CadastroComponent,
     InicioComponent,
-    FeedComponent
+    FeedComponent,
+    TemaComponent
   ],
   imports: [
     BrowserModule,
