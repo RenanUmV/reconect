@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { PostagemModel } from '../model/PostagemModel';
 import { TemaModel } from '../model/TemaModel';
 import { UsuarioModel } from '../model/UsuarioModel';
+import { AuthService } from '../service/auth.service';
 import { PostagensService } from '../service/postagens.service';
 import { TemaService } from '../service/tema.service';
 
@@ -27,16 +28,19 @@ export class FeedComponent implements OnInit {
   constructor(
     private router: Router,
     private temaService: TemaService,
-    private postagemService: PostagensService
+    private postagemService: PostagensService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(){
 
     if (environment.token == ''){
       alert('Sua sessão expirou, faça login novamente')
-      this.router.navigate(['/login'])
-  }
-  
+      this.router.navigate(['/login'])   
+    }
+    this.authService.refreshToken()
+    this.findAllTemas()
+    this.getAllPostagens()  
   }
 
   findAllTemas(){
@@ -48,7 +52,6 @@ export class FeedComponent implements OnInit {
   findByIdTema(){
     this.temaService.getByIdTema(this.idTema).subscribe((resp: TemaModel) => {
       this.tema = resp
-      console.log(this.tema)
     })
   }
 
@@ -58,7 +61,13 @@ export class FeedComponent implements OnInit {
     })
   }
 
-  cadastrar(){
+  findByIdUsuario(){
+    this.authService.getByIdUser(this.idUsuario).subscribe((resp: UsuarioModel)=>{
+      this.usuario = resp
+    })
+  }
+
+  publicar(){
     this.tema.id = this.idTema
     this.postagem.tema = this.tema
 
