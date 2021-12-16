@@ -37,5 +37,9 @@ export class PostagensService {
   putPostagem(postagem: PostagemModel): Observable<PostagemModel>{
     return this.http.put<PostagemModel>('https://reconect.herokuapp.com/postagens', postagem, this.token)
   }
- 
+
+  deletePostagem(id: number){
+    return this.http.delete(`https://reconect.herokuapp.com/postagens/${id}`, this.token)
+  }
+
 }
