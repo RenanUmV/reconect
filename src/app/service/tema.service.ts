@@ -26,7 +26,7 @@ export class TemaService {
 
   getAllTema(): Observable<TemaModel[]>{
     return this.http.get<TemaModel[]>('https://reconect.herokuapp.com/temas', this.token)
-  } 
+  }
 
   getByIdTema(id: number): Observable<TemaModel>{
     return this.http.get<TemaModel>(`https://reconect.herokuapp.com/temas/${id}`, this.token)
