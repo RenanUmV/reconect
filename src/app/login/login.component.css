@@ -1,7 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Eczar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+
 #img-bg{
-    background-image: url("https://i.imgur.com/eT04k9a.jpg");
-    min-height: 100vh;
+    background-image: url("https://i.imgur.com/MamcPMz.png");
+    min-height: 100vh; 
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:contain;
+}
+
+#tela {
+    background-color: #0072b1;
+    height: 100vh;
+    width: 100vw;
+}
+
+#container-central {
+    height: 100vh;
+}
+
+.bg-c {
+    background-color: #0072b1;
+
+}
+.transform-text {
+    text-align: center;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.btn-socials {
+    font-family: 'Poppins', serif;
+    border-radius: 20px;
+    padding: .5rem 0.5rem;
+    color: #FFFFFF;
+}
+
+.texto {
+    font-family: 'Poppins', serif;
+    font-style: normal;
+    font-size: 36px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #0a0a0a;
+}
+
+.font-t {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    color: #0a0a0a;
+}
+
+.font-p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    color: #0072b1;
+    font-size: 10pt;
 }

@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Eczar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+
 #img-bg{
     background-image: url("https://i.imgur.com/FwVAvD6.png");
     min-height: 100vh;
@@ -15,4 +19,10 @@
     min-width: 10rem;
     margin-right: 3rem;
     margin-top: 1.750rem;
+}
+
+.font-t {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    color: #0a0a0a;
 }

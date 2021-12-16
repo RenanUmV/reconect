@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light nav-bar">
+<nav *ngIf='!logado()' class="navbar navbar-expand-lg navbar-light nav-bar sticky-top">
     <div class="container-fluid">
         <a class="font-weight-bold text-white fs-18" routerLink='/inicio'>RECONECT</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -9,19 +9,45 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="text-white fs-16 mr-3" routerLink='/inicio'>Inicio</a>
+                    <a class="text-white fs-16 mr-4" href="#quemSomos">Quem somos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="text-white fs-16 mr-3" href="">Sobre</a>
+                    <a class="text-white fs-16 mr-4" href="#comoFazemos">Como fazemos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="text-white fs-16 mr-3" href="#contato">Contato</a>
+                    <a class="text-white fs-16 mr-4">Cursos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="text-white fs-16 mr-3" routerLink='/cadastro'>Cadastrar</a>
+                    <a class="text-white fs-16 mr-4" href="#contato">Equipe</a>
+                </li>
+                <li class="nav-item">
+                    <a class="text-white fs-16 mr-4" routerLink='/cadastro'>Cadastrar</a>
                 </li>
                 <li class="nav-item">
                     <a class="text-white fs-16" routerLink='/login'>Entrar</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<nav *ngIf='logado()' class="navbar navbar-expand-lg navbar-light nav-bar sticky-top">
+    <div class="container-fluid">
+        <a class="font-weight-bold text-white fs-18" routerLink='/inicio'>RECONECT</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a (click)='sair()' class="text-white fs-16 mr-2" routerLink='/inicio'>Sair</a> 
+                </li>            
+                <li class="nav-item">
+                    <a (click)='sair()' routerLink='/inicio'>
+                        <p class="text-white fs-16 m-0"><i class="fa fa-sign-out" aria-hidden="true"></i></p>
+                    </a>
                 </li>
             </ul>
         </div>
