@@ -18,6 +18,17 @@ h3{
     font-weight: bold;    
 }
 
+.img-cf{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.card-team{
+    width: 300px;
+    min-height: 250px;
+}
+
 #team img{
     margin-top: -50px;
 }
@@ -32,8 +43,6 @@ h3{
 }
 
 #team .card{
-    height: 220px; 
-    width: 200px;    
     border-radius: 5;    
     transition: all 0.3s ease-in;
     -webkit-transition: all 0.3s ease-in;
