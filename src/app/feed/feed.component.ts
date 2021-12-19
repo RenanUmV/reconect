@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment.prod';
 import { PostagemModel } from '../model/PostagemModel';
 import { TemaModel } from '../model/TemaModel';
 import { UsuarioModel } from '../model/UsuarioModel';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 import { PostagensService } from '../service/postagens.service';
 import { TemaService } from '../service/tema.service';
@@ -40,14 +41,15 @@ export class FeedComponent implements OnInit {
     private router: Router,
     private temaService: TemaService,
     private postagemService: PostagensService,
-    private authService: AuthService,
+    public authService: AuthService,
+    private alertas: AlertasService,
     public sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(){    
 
     if (environment.token == ''){
-      alert('Sua sessão expirou, faça login novamente')
+      this.alertas.showAlertDanger('Sua sessão expirou, faça login novamente')
       this.router.navigate(['/login'])   
     }
     this.authService.refreshToken()
@@ -90,7 +92,7 @@ export class FeedComponent implements OnInit {
 
     this.postagemService.postPostagem(this.postagem).subscribe((resp: PostagemModel)=>{
       this.postagem = resp
-      alert('Postagem realizada!')
+      this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
       this.postagem = new PostagemModel()
       this.getAllPostagens()
     })
