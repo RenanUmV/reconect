@@ -9,6 +9,8 @@ import { TemaEditComponent } from './edit/tema-edit/tema-edit.component';
 import { FeedComponent } from './feed/feed.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
+import { PerfilUserComponent } from './perfil-user/perfil-user.component';
+import { PerfilComponent } from './perfil/perfil.component';
 import { TemaComponent } from './tema/tema.component';
 
 const routes: Routes = [
@@ -25,7 +27,10 @@ const routes: Routes = [
   {path: 'tema-edit/:id', component: TemaEditComponent},
   {path: 'tema-delete/:id', component: TemaDeleteComponent},
   {path: 'postagem-edit/:id', component: PostagemEditComponent},
-  {path: 'postagem-delete/:id', component: PostagemDeleteComponent}
+  {path: 'postagem-delete/:id', component: PostagemDeleteComponent},
+
+  {path: 'perfil/:id', component: PerfilComponent},
+  {path:'perfil-user/:id', component: PerfilUserComponent}
 ];
 
 @NgModule({
