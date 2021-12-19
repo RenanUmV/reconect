@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Eczar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+
+.div{
+  font-weight: bolder;
+  font-family: 'Poppins';
+}
+
+.bg-azul{
+  background-color: #0072b1;
+}
+
+
+select:required:invalid {
+  color: gray;
+}
+
+option {
+  color: black;
+}
+
+.btn-post{
+  background-color: #0072b1;
+  color:  #FFFFFF;
+  font-weight: bolder;
+  font-family: 'Poppins';  
+}
+
+.bg-connect{
+  background-color: #f3f2ef;
+}
+
+.card{  
+  border-radius: 10px;
+}
+

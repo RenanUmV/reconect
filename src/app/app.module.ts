@@ -18,6 +18,9 @@ import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.compon
 import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ContatoComponent } from './contato/contato.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { PerfilUserComponent } from './perfil-user/perfil-user.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 
 @NgModule({
@@ -34,13 +37,16 @@ import { ContatoComponent } from './contato/contato.component';
     TemaDeleteComponent,
     PostagemEditComponent,
     PostagemDeleteComponent,
-    ContatoComponent
+    ContatoComponent,
+    PerfilComponent,
+    PerfilUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    OrderModule
   ],
   providers: [{provide: LocationStrategy,
     useClass: HashLocationStrategy}],
