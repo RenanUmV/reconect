@@ -2,39 +2,40 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-4 mt-4">
+            <div class="col-md-4 mt-5">
                 <div>
                     <h5 class="text-white r-t">RECONECT</h5>
                 </div>
                 <div>
-                    <p class="text-white">
+                    <p class="text-white text-justify">
                         <small>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id esse ex temporibus placeat quae. Odit beatae quas, fugit fuga consequuntur praesentium ab voluptate et. Pariatur expedita iure quos nihil vero.
+                        Fundada em Recife-PE, no ano de 2021, a Reconect surgiu frente a necessidade de se solucionar o problema da exclusão digital, visto que tal problemática compromete o livre exercício da cidadania em uma sociedade hiperconectada como a que vivemos.
                         <br>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit beatae quia, nisi vero praesentium eos sequi qui in velit enim vitae eum facilis. Magnam consectetur inventore accusamus rerum aspernatur mollitia.</small>
+                        Atuamos em parceria com empresas, centros comunitários, escolas públicas e bibliotecas, que buscam empoderar digitalmente jovens e adultos, conectando, colaborando e transformando vidas.
+                        </small>
                     </p>
                 </div>
             </div>
             
-            <div class="col-md-4 mt-4 d-flex justify-content-center">
+            <div class="col-md-4 mt-5 d-flex justify-content-center">
                 <ul class="list-unstyled">
                     <li><h5 class="text-white r-t">Institucional</h5></li>
-                    <li><small><a href="" class="text-white">Sobre</a></small></li>
-                    <li><small><a href="" class="text-white">ODS-10</a></small></li>
-                    <li><small><a href="" class="text-white">Quero ser um parceiro</a></small></li>
-                    <li><small><a href=""  class="text-white">Equipe</a></small></li>
-                    <li><h5 class="text-white r-t mt-4">Suporte</h5></li>
-                    <li><small><a href="" class="text-white">Contato</a></small></li>
-                    <li><small><a href="" class="text-white">Doação ou descarte de equipamentos</a></small></li>
-                    <li><small><a href=""  class="text-white">Reclamações e/ou Sugestões</a></small></li>
-                    <li><small><a href="" class="text-white">Ajuda</a></small></li>
+                    <li><small><a class="text-white" href="#quemSomos">Quem somos</a></small></li>
+                    <li><small><a href="https://brasil.un.org/pt-br/sdgs/10" target = "_blank" class="text-white">ODS-10</a></small></li>
+                    <li><small><a class="text-white" routerLink='/contato'>Quero ser um parceiro</a></small></li>
+                    <li><small><a class="text-white" routerLink='/inicio'>Equipe</a></small></li>
+                    <li><h5 class="text-white r-t mt-4" routerLink='/contato'>Suporte</h5></li>
+                    <li><small><a class="text-white" routerLink='/contato'>Contato</a></small></li>
+                    <li><small><a routerLink='/contato'  class="text-white">Doação ou descarte de equipamentos</a></small></li>
+                    <li><small><a class="text-white" routerLink='/contato'>Reclamações e/ou Sugestões</a></small></li>
+                    <li><small><a class="text-white" routerLink='/contato'>Ajuda</a></small></li>
                 </ul>
                 
             </div>
 
-            <div class="col-md-4 mt-4">
+            <div class="col-md-4 mt-5">
                 <div>
-                    <h5 class="text-white text-center r-t">Assine nossa Newsletter</h5>
+                    <h5 class="text-white text-center r-t">Fique por dentro da reconect</h5>
                 </div>
                 <form>
                     <div class="form-group">
@@ -45,10 +46,20 @@
                         <label for="exampleFormControlInput2" class="text-white"><small>Email</small></label>
                         <input type="email" class="form-control" id="exampleFormControlInput2">
                     </div>
-                    <div class=" d-flex justify-content-end">
-                        <button type="button" class="btn btn-outline-light btn-lg btn-block mt-3">Enviar</button>
+                    <div class="text-white text-justify">
+                        <p><small>
+                            Ao informar meus dados, eu concordo com a Política de Privacidade.
+                        </small></p>
                     </div>
-                    </form>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label text-justify text-white" for="defaultCheck1"><small>Eu concordo em receber comunicações.</small>
+                        </label>
+                    </div>
+                    <div class=" d-flex justify-content-end">
+                        <button type="submit" class="btn btn-outline-light btn-lg btn-block mt-3">Enviar</button>
+                    </div>
+                </form>
             </div>
 
         </div>

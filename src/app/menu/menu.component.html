@@ -1,4 +1,4 @@
-<nav *ngIf='!logado()' class="navbar navbar-expand-lg navbar-light nav-bar sticky-top">
+<nav *ngIf='!logado()' class="navbar navbar-expand-lg navbar-dark nav-bar sticky-top">
     <div class="container-fluid">
         <a class="font-weight-bold text-white fs-18" routerLink='/inicio'>RECONECT</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -15,10 +15,16 @@
                     <a class="text-white fs-16 mr-4" href="#comoFazemos">Como fazemos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="text-white fs-16 mr-4">Cursos</a>
+                    <a class="text-white fs-16 mr-4" href="#cursos">Cursos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="text-white fs-16 mr-4" href="#contato">Equipe</a>
+                    <a class="text-white fs-16 mr-4" href="#equipe">Equipe</a>
+                </li>
+                <li class="nav-item">
+                    <a class="text-white fs-16 mr-4" routerLink='/contato'>Contato</a>
+                </li>
+                <li class="nav-item text-white fs-16 mr-4">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
                 </li>
                 <li class="nav-item">
                     <a class="text-white fs-16 mr-4" routerLink='/cadastro'>Cadastrar</a>

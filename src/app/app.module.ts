@@ -17,6 +17,7 @@ import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component'
 import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
 import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ContatoComponent } from './contato/contato.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     TemaEditComponent,
     TemaDeleteComponent,
     PostagemEditComponent,
-    PostagemDeleteComponent
+    PostagemDeleteComponent,
+    ContatoComponent
   ],
   imports: [
     BrowserModule,
