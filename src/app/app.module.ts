@@ -21,6 +21,8 @@ import { ContatoComponent } from './contato/contato.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { PerfilUserComponent } from './perfil-user/perfil-user.component';
 import { OrderModule } from 'ngx-order-pipe';
+import { AlertasComponent } from './alertas/alertas.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -39,13 +41,15 @@ import { OrderModule } from 'ngx-order-pipe';
     PostagemDeleteComponent,
     ContatoComponent,
     PerfilComponent,
-    PerfilUserComponent
+    PerfilUserComponent,
+    AlertasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ModalModule.forRoot(),
     OrderModule
   ],
   providers: [{provide: LocationStrategy,

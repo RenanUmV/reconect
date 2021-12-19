@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { UsuarioModel } from '../model/UsuarioModel';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 
 @Component({
@@ -18,14 +19,15 @@ export class PerfilUserComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit(){
     window.scroll(0,0)
 
     if (environment.token == ''){
-      alert('Sua sessão expirou, faça login novamente')
+      this.alertas.showAlertDanger('Sua sessão expirou, faça login novamente')
       this.router.navigate(['/login'])   
     }
     this.idUsuario = this.route.snapshot.params['id']
