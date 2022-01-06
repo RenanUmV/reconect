@@ -1,58 +1,64 @@
 
 <div class="container-fluid">
 
-    <div class="container">
+    <div class="row">
 
-        <div class="row d-flex justify-content-center mt-5 mb-5">
+        <div class="col-md-12 mt-5 mb-5">
 
-            <div class="col-md-4">
+            <div class="row d-flex justify-content-center">
+
+                <div class="col-md-5">
     
-                <h1 class="text-center mb-4 font-t">Formulário de
-                    <span>Contato</span>
-                </h1>
+                    <h1 class="text-center mb-4 font-t">Formulário de
+                        <span>Contato</span>
+                    </h1>
     
-                <form>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Nome completo</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Seu nome">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput2">E-mail</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="Seu melhor e-mail">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Selecione a opção desejada</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                        <option>1. Contato</option>
-                        <option>2. Quero ser um parceiro</option>
-                        <option>3. Doação/Descarte de equipamentos</option>
-                        <option>4. Reclamações/Sugestões</option>
-                        <option>5. Alteração de senha</option>
-                        <option>6. Ajuda</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Mensagem</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escreva sua mensagem"></textarea>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                        <label class="form-check-label text-justify" for="defaultCheck1">
-                        Ao utilizar nosso formulário você está ciente e de acordo com nossa
-                        <span>Política de Privacidade</span> 
-                        </label>
-                    </div>
-                    <div class="d-flex justify-content-center mt-2">
-                        <button type="submit" class="btn btn-block transform-text btn-socials mt-3">Enviar Contato
-                            <i class="fa fa-arrow-circle-right ml-3" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </form>
-    
+                    <form>
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input  class="form-control" type="text" name="nome" id="nome" placeholder="Seu nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input class="form-control" type="text"  name="usuario" id="usuario" placeholder="Seu melhor e-mail">
+                        </div>
+                        <div class="form-group">
+                            <label for="tipo">Selecione a opção desejada</label>
+                            <select class="form-control" nome="tipo" id="tipo">
+                                <option>Escolha uma opção</option>
+                                <option>1. Solicitação de conta ADM</option>
+                                <option>2. Quero ser um parceiro</option>
+                                <option>3. Doação e/ou Descarte de equipamentos</option>
+                                <option>4. Alteração de senha</option>
+                                <option>5. Denúncias e/ou Reclamações</option>
+                                <option>6. Solicitação de tema</option>
+                                <option>7. Ajuda</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="texto">Mensagem</label>
+                            <textarea class="form-control" nome="texto" id="texto" rows="4" placeholder="Escreva sua mensagem"></textarea>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label text-justify" for="defaultCheck1">
+                            Ao utilizar nosso formulário você está ciente e de acordo com nossa
+                            <span>Política de Privacidade</span> 
+                            </label>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-danger btn-lg botao ml-5 mr-5" routerLink="/inicio">Cancelar
+                            </button>
+                            <button type="submit" class="btn btn-success btn-lg botao" >Enviar</button>
+                        </div>
+                    </form>
+
+                </div>
+
             </div>
-    
+
         </div>
-                
+    
     </div>
             
 </div>

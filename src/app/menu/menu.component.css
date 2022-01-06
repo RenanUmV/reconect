@@ -2,12 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 
 
-ul li a {
-    font-family: 'Poppins';
-    font-weight: bolder;
-    text-decoration: none;
-}
-
 .nav-bar {
     background-color: #061c39;
 }
@@ -16,16 +10,24 @@ ul li a {
     font-family: 'Poppins';
     text-decoration: none;
     font-weight: bolder;
+    color: #fff;
 }
 
-.fs-18 {
-    font-size: 18pt;
+.btn-cad{
+    font-family: 'Poppins', serif;
+    border-radius: 20px;
+    background-color: #0072b1;
 }
 
-.fs-16 {
-    font-size: 12pt;
+.fs-20 {
+    font-size: 20pt;
 }
 
-a {
-    cursor: pointer;
+.fade{
+    opacity:0.9;
+}
+
+.fade:hover
+{
+    opacity:1;
 }
