@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
+import { PostagemModel } from '../model/PostagemModel';
 import { UsuarioModel } from '../model/UsuarioModel';
 import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
@@ -15,6 +16,12 @@ export class PerfilUserComponent implements OnInit {
   usuario: UsuarioModel = new UsuarioModel()
   idUsuario: number
   userId = environment.id
+
+  postagem: PostagemModel = new PostagemModel()
+  listaPostagem: PostagemModel[]
+
+  key = 'data'
+  reverse = true
 
   constructor(
     private route: ActivatedRoute,
@@ -48,4 +55,15 @@ export class PerfilUserComponent implements OnInit {
     return false;
   }
 
+
+  verificandoVideo(urlIframe: string) {
+    let regex = /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\\-]+\?v=|embed\/|v\/))(\S+)?$/
+
+    if (regex.test(urlIframe)) {
+      return true
+    }
+    else {
+      return false;
+    }
+  }
 }

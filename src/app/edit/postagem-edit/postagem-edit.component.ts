@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostagemModel } from 'src/app/model/PostagemModel';
 import { TemaModel } from 'src/app/model/TemaModel';
 import { AlertasService } from 'src/app/service/alertas.service';
+import { AuthService } from 'src/app/service/auth.service';
 import { PostagensService } from 'src/app/service/postagens.service';
 import { TemaService } from 'src/app/service/tema.service';
 import { environment } from 'src/environments/environment.prod';
@@ -20,12 +22,17 @@ export class PostagemEditComponent implements OnInit {
   listaTemas: TemaModel[]
   idTema: number
 
+  urlIframe: string = this.postagem.foto;
+  urlSafe: SafeResourceUrl;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private postagemService: PostagensService,
     private temaService: TemaService,
-    private alertas: AlertasService
+    private alertas: AlertasService,
+    public authService: AuthService,
+    public sanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {
@@ -68,6 +75,27 @@ export class PostagemEditComponent implements OnInit {
       this.alertas.showAlertInfo('Postagem atualizada com sucesso!')
       this.router.navigate(['/feed'])
     })
+  }
+
+  testandoIframe(){
+    
+    if (this.postagem.foto){
+      this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.postagem.foto);  
+    }else{
+      this.urlSafe = ""
+    }
+      
+  }
+
+  verificandoVideo(urlIframe: string) {
+    let regex = /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\\-]+\?v=|embed\/|v\/))(\S+)?$/
+
+    if (regex.test(urlIframe)) {
+      return true
+    }
+    else {
+      return false;
+    }
   }
 
 }
