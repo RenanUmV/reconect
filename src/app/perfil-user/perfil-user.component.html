@@ -1,69 +1,155 @@
-<div id="tela" class=" bg-roxo6">
+<div class="container-fluid bg-connect tela" id="tela">
 
-  <div class="container">
+    <div class="container ">
 
-      <div class="row" style="color:#ede7f8">.</div>
+        <div class="row mb-5"><div></div></div>
 
-      <div class="row">
-          <div class="col-md-2 ">
+        <div class="row">
+            <div class="col-md-2 ">
+                <div class="card mb-3 mt-4">
+                    <div class="d-flex flex-column p-1">
+                        <div class="ms-1">
 
-              <div class="card border-roxoclaro mb-3 mt-3 bg-roxo4">
-                  <div class="d-flex flex-column p-1">
+                            
+                                <div class="d-flex flex-column justify-content-start ml-2">                                    
+                                        <div>                                        
+                                            <a class="text-secondary" routerLink='/feed'><i class="fa fa-arrow-left mr-2" aria-hidden="true"></i>Feed</a>    
+                                        </div>
+                                        <div>
+                                            <a class="text-secondary" href="#perfil"><i class="fa fa-user mr-2 iperfil"></i>Perfil</a>
+                                        </div>                                        
+                                        <div>
+                                            <a class="text-secondary " href="#postagens"><i class="fa fa-list mr-2 ipost" aria-hidden="true"></i>Postagens</a> 
+                                        </div>
+                                        <div>                                            
+                                            <a *ngIf="verificaPerfilUsuario()" class="text-secondary" [routerLink]="['/perfil', idUsuario]"><i class="fa fa-pencil mr-2" aria-hidden="true"></i>Editar</a>
+                                        </div>
+                                </div>
+                            
 
-                      <div class="ms-1">
+                            
+                        </div>
+                    </div>
+                </div>
 
-                          <div class="d-flex align-items-center rounded p-2 border-b-p">
-                              <i class="fa fa-home me-2"></i><a class="mr-2-5" routerLink='/feed'>Página 
-                                  Inicial</a>
-                          </div>
-                          <div *ngIf="verificaPerfilUsuario()" class="d-flex align-items-center rounded p-2">
-                              <i class="fa fa-edit me-2"></i><a class="mr-2-5"
-                                  [routerLink]="['/perfil', idUsuario]">Editar Perfil</a>
-                          </div>
-                          <div *ngIf="verificaPerfilUsuario()" class="d-flex align-items-center rounded p-2">
-                              <i class="fa fa-align-left me-3"></i><a class="mr-2-5">Minhas
-                                  Postagens</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+            </div>
 
-          </div>
+            <div class="mt-3 col-md-10">
+
+                <!--Perfil-->
+                <div class="d-flex flex-column" id="perfil">          
+                        <div class="container-fluid d-flex align-items-center justify-content-center">
+                            <div class="col-md-10 p-3">
+                                <div class="mb-3 card">
+                                    <div class="d-flex mt-4 justify-content-center">
+                                        <div class="col-md-6">
+                                            <div class="col mx-auto text-center">
+                                                <img src="{{usuario.foto}}" class="card-img-top rounded-circle teste"
+                                                    alt="..." style="height: 200px; width: 200px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-md-6 d-flex justify-content-center">
+                                            <div class="d-flex align-items-center flex-column mb-2">
+                                                <h4 class="text-center  mt-3">{{usuario.nome}}
+                                                    <h6>{{usuario.dataNascimento}}</h6>
+                                                </h4>
+                                                <h4 class="text-center"></h4>
+                                                <h6 class="text-center">{{usuario.usuario}}</h6>
+                                                <h6 class="text-center">{{usuario.tipo}}</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                    
+                    <!--/Perfil-->
+                </div>
+
+                <div class="row" id="postagens"></div>
+
+                <h4 class="d-flex justify-content-center mt-4 text-secondary">Postagens</h4>
+
+                <!--Lista Geral-->
+                <div class="d-flex flex-column">
+                   
+                        <div class="container-fluid p-3">
+
+                            <div class="card my-4 p-3 justify-content-center col-md-9 mx-auto"
+                                *ngFor='let item of usuario.postagem | orderBy : key : reverse'>
+                                <div class="mx-4 my-4 d-flex align-items-center">
+                                    <div>
+                                        <img src="{{usuario.foto}}" class="mr-2 card-img-top img-fluid rounded-circle"
+                                            alt="..." style="width: 50px; height: 50px;">
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <a [routerLink]="['/perfil-user', usuario.id]"
+                                            class="card-subtitle text-secondary"><strong>{{usuario.nome}}</strong></a>
+                                        <small class="text-secondary">{{item.data | date: 'dd/MM/yyyy'}} às {{item.data
+                                            | date:
+                                            'HH:mm'}}</small>
+                                    </div>
+
+                                    <div *ngIf="usuario.id == userId" class="btn-group dropleft ml-auto">
+                                        <button type="button" class="btn btn-white btn-sm dropdown-toggle"
+                                            data-toggle="dropdown" aria-expanded="false">
+                                            ...
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <button [routerLink]="['/postagem-delete', usuario.id]"
+                                                class="dropdown-item text-danger">Delete</button>
+                                            <button [routerLink]="['/postagem-edit', usuario.id]"
+                                                class="dropdown-item">Edit</button>
+                                        </div>
+                                    </div>
 
 
-          <div class="col-md-10 d-flex flex-column">
+                                </div>
 
-              <div class="container-fluid d-flex align-items-center justify-content-center" id="container-central">
-                  <div class="col-md-10 p-3">
-
-                      <div class=" bg-roxo4 mb-3 border-roxoclaro">
-                          <div class="d-flex justify-content-center">
-                              <div class="col-md-6 d-flex justify-content-center">
-                                  <div class="col-md-6 ">
-                                      <img src="{{usuario.foto}}" class=" card-img-top img-fluid rounded-circle  my-3"
-                                          alt="..." style="width: 100px; height: 100px;">
-                                  </div>
-
-                              </div>
-                          </div>
-                          <div class="row d-flex justify-content-center">
-                              <div class="col-md-6 d-flex justify-content-center">
-                                  <div class="d-flex align-items-center flex-column mb-2">
-                                      <h4 class="text-center">{{usuario.nome}}
-                                          <h6>{{usuario.dataNascimento}}</h6>
-                                      </h4>
-                                      <h4 class="text-center"></h4>
-                                      <h6 class="text-center">{{usuario.usuario}}</h6>
-                                  </div>
-                              </div>
-                          </div>
-                          
-                      </div>
+                                <div class="card-body">
+                                    <h5 class="card-title"><b>{{item.titulo}}</b></h5>
+                                    <p class="card-text my-3" [innerHTML]="item.texto"></p>
+                                    <div class="d-flex justify-content-center">
+                                        <img onerror="this.style.display='none'" src="{{item.foto}}"
+                                            class="card-img-top img-fluid" alt="..." style="width: 370px;">
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <iframe *ngIf="verificandoVideo(item.foto)" width="100%" height="300"
+                                            [src]="item.foto"></iframe>
+                                    </div>
+                                </div>
 
 
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                                <div class="container">
+                                    <hr>
+                                </div>
+
+                                <div class="d-flex justify-content-around mb-2">
+
+                                    <span style="color: #0072b1"><i style="font-size: 18pt;" class="fa fa-heart-o"
+                                            aria-hidden="true"></i>
+                                    </span>
+
+                                    <span style="color: #0072b1"><i style="font-size: 18pt;" class="fa fa-share-alt"
+                                            aria-hidden="true"></i>
+                                    </span>
+
+                                    <span style="color: #0072b1"><i style="font-size: 18pt;" class="fa fa-comment-o"
+                                            aria-hidden="true"></i>
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    
+                </div>
+                <!--/Lista Geral-->
+
+            </div>
+        </div>
+    </div>
+    <div class="row mb-5"><div></div></div>
 </div>

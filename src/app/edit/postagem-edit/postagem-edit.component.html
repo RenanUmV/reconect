@@ -18,13 +18,31 @@
                   <textarea [(ngModel)]='postagem.texto' class="form-control" name="texto" id="texto" rows="3"></textarea>
               </div>
               <div class="form-group">
-                  <label for="titulo">Escolha um tema ou  <a routerLink='/tema' data-dismiss="modal">cadastre um novo</a>: </label>
+                  <label for="titulo">Escolha um tema <a *ngIf='authService.administrador()' routerLink='/tema' data-dismiss="modal">ou cadastre um novo</a>: </label>
                   <select name="tema" id="tema" class="form-control" [(ngModel)]='idTema' (change)='findByIdTema()'>
                       <option *ngFor='let item of listaTemas' value="{{item.id}}">{{item.descricao}}</option>
                   </select>
               </div>
 
-              <div class=" d-flex justify-content-center">
+              <div class="form-group text-center texto mb-2">
+                <input [(ngModel)]="postagem.foto" (ngModelChange)="testandoIframe()"
+                    class="form-control w-100 bg-in mb-3" type="text" placeholder="Link de video ou Foto">
+                <img onerror="this.style.display='none'" *ngIf='urlSafe' [src]="urlSafe" alt="" height="50%"
+                    width="50%">
+                <iframe *ngIf='verificandoVideo(postagem.foto)' [src]="urlSafe" height="200px" width="200px"
+                    scrolling="no"></iframe>
+            </div>
+
+            <!-- <div class="d-flex justify-content-center">
+                <img onerror="this.style.display='none'" src="{{postagem.foto}}"
+                    class="card-img-top img-fluid" alt="..." style="width: 370px;">
+            </div>
+            <div class="d-flex justify-content-center">
+                <iframe *ngIf="verificandoVideo(postagem.foto)" width="100%" height="300"
+                    [src]="postagem.foto"></iframe>
+            </div> -->
+
+              <div class=" d-flex justify-content-center mt-3">
                   <button class="btn btn-danger mr-4" routerLink='/feed'>Cancelar</button>
                   <button class="btn btn-success" (click)='atualizar()'>Atualizar</button>
               </div>

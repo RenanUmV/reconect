@@ -1,100 +1,223 @@
 <div class="container-fluid bg-connect">
-  <div class="container">
+    <div class="container">
 
-      <div class="row" style="color:#f3f2ef">
-          .
-      </div>
-      <div class="row" style="color:#f3f2ef">
-          .
-      </div>
+        <div class="row" style="color:#f3f2ef">
+            .
+        </div>
+        <div class="row" style="color:#f3f2ef">
+            .
+        </div>
 
-      <div class="row d-flex justify-content-center">
+        <div class="row d-flex justify-content-center">
 
-          <div class="col-md-3">
-              <div class="card mb-3 bg-card">
-                  <div class="d-flex justify-content-center">
-                      <div class="col-md-6">
-                          <div>
-                              <img src="{{fotoUsuario}}" class="bg-l card-img-top img-fluid rounded-circle  my-3"
-                                  alt="..."style="width: 100px; height: 100px">
-                                                            
-                          </div>
-                          <div>
-                            <h5 class="text-center">{{nomeUsuario}}</h5>  
-                          </div>
-                      </div>
-                  </div>
+            <div class="col-md-3">
+                <div class="card mb-3 bg-card">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-md-8">
+                            <div class="row d-flex justify-content-center flex-wrap">
+                                <img src="{{fotoUsuario}}" class="card-img-top img-fluid rounded-circle  my-3 mx-auto"
+                                    alt="..." style="width: 100px; height: 100px">
+                                <h4 class="text-center">{{nomeUsuario}}</h4>
+                            </div>                            
+                        </div>
+                    </div>
 
-                  <div class="container">
-                      <hr>
-                  </div>
+                    <div class="container">
+                        <hr>
+                    </div>
 
-                  <div class="d-flex flex-column p-1 mt-2">
+                    <div class="d-flex flex-column p-1 mt-2">
 
-                      <div >
-                          <div class="d-flex align-items-baseline rounded p-2">
-                              <i class="fa fa-user mr-3"></i><a class="text-secondary"
-                                 >Meu Perfil</a>
-                          </div>                                                      
-                          <div *ngIf='authService.administrador()' class="d-flex align-items-center rounded p-2 mb-2">
-                              <i class="fa fa-align-left mr-3"></i><a class="text-secondary" routerLink='/tema'>Temas</a>
-                          </div>
-                      </div>
-                  </div>
-
-
-              </div>
-          </div>
+                        <div>
+                            <div class="d-flex align-items-baseline rounded p-2">
+                                <a class="text-secondary" [routerLink]="['/perfil-user', idUsuario]"><i class="fa fa-user mr-2 iperfil"></i>Meu Perfil</a>
+                            </div>
+                            <div class="d-flex align-items-baseline rounded p-2 mb-2">
+                                <a class="text-secondary"><i class="fa fa-users mr-2 iconex" aria-hidden="true"></i>Minhas Conexões</a>
+                            </div>
+                            <div *ngIf='authService.administrador()' class="d-flex align-items-center rounded ml-2 mb-2">
+                                <a class="text-secondary" routerLink='/tema'><i class="fa fa-server mr-2" aria-hidden="true"></i>Temas</a>
+                            </div>
+                        </div>
+                    </div>
 
 
-          <div class="col-md-6">
-              <div class="card mb-4">
+                </div>
+            </div>
 
-                  <div class="row my-3 mx-3">
 
-                      <div class="col-md-12 my-2 d-flex align-items-center">
+            <div class="col-md-6">
+                <div class="card mb-4">
 
-                          <button class="btn btn-light align-content-center w-100 btn-post"
-                              style="height: 45px;" data-toggle="modal" data-target="#publicacaoModal">
-                              Criar
-                              uma nova postagem
-                          </button>
+                    <div class="row my-3 mx-3">
 
-                      </div>
-                  </div>
-              </div>
+                        <div class="col-md-12 my-2 d-flex align-items-center">
 
-              
-              <div id='postagens'>
-              <nav>
-                  <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
-              
-                  <a class="nav-link active text-secondary font-weight-bolder" id="nav-todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todas as Postagens</a>
-              
-                  <a (click)='findByIdUsuario()' class="nav-link text-secondary font-weight-bolder" id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</a>
-              
-                  <a class="nav-link text-secondary font-weight-bolder" id="nav-postagemTema-tab" data-toggle="tab" href="#postagemTema" role="tab" aria-controls="postagemTema" aria-selected="false">Postagens por Tema</a>
-              
-                  </div>
-              </nav>
+                            <button class="btn btn-light align-content-center w-100 btn-post" style="height: 45px;"
+                                data-toggle="modal" data-target="#publicacaoModal">
+                                Criar
+                                uma nova postagem
+                            </button>
 
-              <div class="tab-content mt-3" id="nav-tabContent">
+                        </div>
+                    </div>
+                </div>
 
-                  <!--Lista Geral-->
-              <div class="tab-pane fade show active " id="todasPostagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">                    
-                  <div class="card my-4" *ngFor='let item of listaPostagem | orderBy : key : reverse'>
 
-                      <div class="mx-4 my-4 d-flex align-items-center">
-                          <div>
-                              <img src="{{item.usuario.foto}}" class="mr-2 card-img-top img-fluid rounded-circle" alt="..."
-                                  style="width: 50px; height: 50px;">
-                          </div>
-                          <div class="d-flex flex-column">
-                              <span class="text-dark">{{item.usuario.nome}}</span>
-                              <small class="text-secondary">{{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}</small>
-                          </div>
+                <div id='postagens'>
+                    <nav>
+                        <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
 
-                          <!-- <div class="btn-group dropleft ml-auto">
+                            <a class="nav-link active text-secondary font-weight-bolder" id="nav-todasPostagens-tab"
+                                data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens"
+                                aria-selected="true">Todas as Postagens</a>
+
+                            <a (click)='findByIdUsuario()' class="nav-link text-secondary font-weight-bolder"
+                                id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab"
+                                aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</a>
+
+                            <a class="nav-link text-secondary font-weight-bolder" id="nav-postagemTema-tab"
+                                data-toggle="tab" href="#postagemTema" role="tab" aria-controls="postagemTema"
+                                aria-selected="false">Postagens por Tema</a>
+
+                        </div>
+                    </nav>
+
+                    <div class="tab-content mt-3" id="nav-tabContent">
+
+                        <!--Lista Geral-->
+                        <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
+                            aria-labelledby="nav-todasPostagens-tab">
+                            <div class="card my-4" *ngFor='let item of listaPostagem | orderBy : key : reverse'>
+
+                                <div class="mx-4 my-4 d-flex align-items-center">
+                                    <div>
+                                        <img src="{{item.usuario.foto}}"
+                                            class="mr-2 card-img-top img-fluid rounded-circle" alt="..."
+                                            style="width: 50px; height: 50px;">
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <a [routerLink]="['/perfil-user', item.usuario.id]"
+                                            class="card-subtitle text-secondary"><strong>{{item.usuario.nome}}</strong></a>
+                                        <small class="text-secondary">{{item.data | date: 'dd/MM/yyyy'}} às {{item.data
+                                            | date: 'HH:mm'}}</small>
+                                    </div>
+
+                                    <div *ngIf="item.usuario.id == idUsuario" class="btn-group dropleft ml-auto">
+                                        <button type="button" class="btn btn-white btn-sm dropdown-toggle"
+                                            data-toggle="dropdown" aria-expanded="false">
+                                            ...
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <button [routerLink]="['/postagem-delete', item.id]"
+                                                class="dropdown-item text-danger">Delete</button>
+                                            <button [routerLink]="['/postagem-edit', item.id]"
+                                                class="dropdown-item">Edit</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="card-body">
+                                    <h5 class="card-title"><b>{{item.titulo}}</b></h5>
+                                    <p class="card-text my-3" [innerHTML]="item.texto"></p>
+                                    <div class="d-flex justify-content-center">
+                                        <img onerror="this.style.display='none'" src="{{item.foto}}"
+                                            class="card-img-top img-fluid" alt="..." style="width: 370px;">
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <iframe *ngIf="verificandoVideo(item.foto)" width="100%" height="300"
+                                            [src]="item.foto"></iframe>
+                                    </div>
+                                </div>
+
+
+                                <div class="container">
+                                    <hr>
+                                </div>
+
+                                <div class="d-flex justify-content-around mb-2">
+
+                                    <span style="color: #0072b1"><i style="font-size: 18pt;" class="fa fa-heart-o"
+                                            aria-hidden="true"></i>
+                                    </span>
+
+                                    <span style="color: #0072b1"><i style="font-size: 18pt;" class="fa fa-share-alt"
+                                            aria-hidden="true"></i>
+                                    </span>
+
+                                    <span style="color: #0072b1"><i style="font-size: 18pt;" class="fa fa-comment-o"
+                                            aria-hidden="true"></i>
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--/Lista Geral-->
+
+                        <!--Minhas Postagens-->
+                        <div class="tab-pane fade" id="minhasPostagens" role="tabpanel"
+                            aria-labelledby="nav-minhasPostagens-tab">
+                            <div class="card my-4" *ngFor='let item of usuario.postagem | orderBy : key : reverse'>
+
+                                <div class="card text-center">
+                                    <div class="card-body">
+
+
+                                        <h5 class="card-title">{{item.titulo}}</h5>
+                                        <small class="text-muted">Tema: {{item.tema.descricao}}</small>
+                                        <p class="card-text">{{item.texto}}</p>
+                                        <p class="card-text"><small class="text-muted">{{item.data | date:
+                                                'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}</small></p>
+
+                                        <div class="d-flex justify-content-center">
+                                            <img onerror="this.style.display='none'" src="{{item.foto}}"
+                                                class="card-img-top img-fluid" alt="..." style="width: 370px;">
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <iframe *ngIf="verificandoVideo(item.foto)" width="100%" height="300"
+                                                [src]="item.foto"></iframe>
+                                        </div>
+
+                                        <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3"
+                                            href="">Editar</a>
+                                        <a [routerLink]="['/postagem-delete', item.id]" class="text-danger"
+                                            href="">Apagar</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--/Minhas Postagens-->
+
+                        <!--Lista Temas-->
+                        <div class="tab-pane fade" id="postagemTema" role="tabpanel" aria-labelledby="postagemTema-tab">
+                            <div class="container-fluid">
+                                <span class="mr-1">Postagens por tema:</span>
+                                <select [(ngModel)]="selecionarTema" (change)='findByIdTemaPostagens($event)'
+                                    class="form-select" name="" id="">
+                                    <!-- <option value="todos">Todos</option> -->
+                                    <option *ngFor='let tema of listaTemas' class="fw-bolder" value="{{tema.id}}">
+                                        {{tema.descricao}}</option>
+                                </select>
+                            </div>
+
+                            <div *ngFor='let item of tema.postagem | orderBy : key : reverse' class="card my-4">
+
+                                <div class="mx-4 my-3 d-flex align-items-center">
+                                    <div>
+                                        <img src="{{item.usuario.foto}}"
+                                            class="mr-2 card-img-top img-fluid rounded-circle" alt="..."
+                                            style="width: 50px; height: 50px">
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <span class="text-dark">{{item.usuario.nome}}</span>
+                                        <small class="text-secondary">{{item.data | date: 'dd/MM/yyyy'}} às {{item.data
+                                            | date: 'HH:mm'}}</small>
+                                    </div>
+
+                                    <!-- <div class="btn-group dropleft ml-auto">
                               <button type="button" class="btn btn-white btn-sm dropdown-toggle"
                                   data-toggle="dropdown" aria-expanded="false">
                                   ...
@@ -107,255 +230,151 @@
                               </div>
                           </div> -->
 
-                      </div>                    
-
-                      <div class="card-body">
-                          <h5 class="card-title"><b>{{item.titulo}}</b></h5>
-                          <p class="card-text my-3" [innerHTML]="item.texto"></p>
-                          <div class="d-flex justify-content-center">
-                              <img onerror="this.style.display='none'" src="{{item.foto}}" class="card-img-top img-fluid" alt="..."
-                                  style="width: 370px;">
-                          </div>
-                          <div class="d-flex justify-content-center">
-                              <iframe *ngIf="verificandoVideo(item.foto)" width="100%" height="300"
-                                  [src]="item.foto"></iframe>
-                          </div>
-                      </div>
-
-
-                      <div class="container">
-                          <hr>
-                      </div>
-
-                      <div class="d-flex justify-content-around mb-2">
-                          
-                                  <span style="color: #0072b1"><i style="font-size: 18pt;"
-                                          class="fa fa-heart-o" aria-hidden="true"></i>
-                                  </span>
-
-                                  <span style="color: #0072b1"><i style="font-size: 18pt;"
-                                      class="fa fa-share-alt" aria-hidden="true"></i>
-                                  </span>
-                                  
-                                  <span style="color: #0072b1"><i style="font-size: 18pt;"
-                                      class="fa fa-comment-o" aria-hidden="true"></i>
-                                  </span>   
-
-                      </div>
-
-                  </div>
-              </div>
-              <!--/Lista Geral-->
-
-              <!--Minhas Postagens-->
-              <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
-                  <div class="card my-4" *ngFor='let item of usuario.postagem | orderBy : key : reverse'>
-
-                      <div class="card text-center">
-                          <div class="card-body">
-                          
-
-                              <h5 class="card-title">{{item.titulo}}</h5>
-                              <small class="text-muted">Tema: {{item.tema.descricao}}</small>
-                              <p class="card-text">{{item.texto}}</p>
-                              <p class="card-text"><small class="text-muted">{{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}</small></p>
-
-                              <div class="d-flex justify-content-center">
-                                  <img onerror="this.style.display='none'" src="{{item.foto}}" class="card-img-top img-fluid" alt="..."
-                                      style="width: 370px;">
-                              </div>
-                              <div class="d-flex justify-content-center">
-                                  <iframe *ngIf="verificandoVideo(item.foto)" width="100%" height="300"
-                                      [src]="item.foto"></iframe>
-                              </div>
-                          
-                              <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3" href="">Editar</a>
-                              <a [routerLink]="['/postagem-delete', item.id]" class="text-danger" href="">Apagar</a> 
-                          </div>
-                      </div>          
-
-                  </div>
-              </div>              
-              <!--/Minhas Postagens-->
-
-              <!--Lista Temas-->
-              <div  class="tab-pane fade" id="postagemTema" role="tabpanel" aria-labelledby="postagemTema-tab">
-                  <div class="container-fluid">
-                      <span class="mr-1">Postagens por tema:</span>
-                      <select [(ngModel)]="selecionarTema" (change)='findByIdTemaPostagens($event)' class="form-select" name="" id="">
-                          <!-- <option value="todos">Todos</option> -->
-                          <option *ngFor='let tema of listaTemas' class="fw-bolder" value="{{tema.id}}">{{tema.descricao}}</option>
-                      </select>
-                  </div>
-
-                  <div *ngFor='let item of tema.postagem | orderBy : key : reverse' 
-                      class="card my-4">
-
-                      <div class="mx-4 my-3 d-flex align-items-center">
-                          <div>
-                              <img src="{{item.usuario.foto}}" class="mr-2 card-img-top img-fluid rounded-circle"
-                                  alt="..." style="width: 50px; height: 50px">
-                          </div>
-                          <div class="d-flex flex-column">
-                              <span class="text-dark">{{item.usuario.nome}}</span>
-                              <small class="text-secondary">{{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}</small>
-                          </div>
-
-                          <!-- <div class="btn-group dropleft ml-auto">
-                              <button type="button" class="btn btn-white btn-sm dropdown-toggle"
-                                  data-toggle="dropdown" aria-expanded="false">
-                                  ...
-                              </button>
-                              <div class="dropdown-menu">
-                                  <button [routerLink]="['/postagem-delete', item.id]"
-                                      class="dropdown-item text-danger">Delete</button>
-                                  <button [routerLink]="['/postagem-edit', item.id]"
-                                      class="dropdown-item">Edit</button>
-                              </div>
-                          </div> -->
-
-                      </div>
+                                </div>
 
 
 
-                      <div class="card-body">
-                          <h5 class="card-title"><b>{{item.titulo}}</b></h5>
-                          <p class="card-text my-3" [innerHTML]="item.texto"></p>
-                          <div class="d-flex justify-content-center">
-                              <img onerror="this.style.display='none'" src="{{item.foto}}"
-                                  class="card-img-top img-fluid" alt="..." style="width: 370px;">
-                          </div>
-                      </div>
+                                <div class="card-body">
+                                    <h5 class="card-title"><b>{{item.titulo}}</b></h5>
+                                    <p class="card-text my-3" [innerHTML]="item.texto"></p>
+                                    <div class="d-flex justify-content-center">
+                                        <img onerror="this.style.display='none'" src="{{item.foto}}"
+                                            class="card-img-top img-fluid" alt="..." style="width: 370px;">
+                                    </div>
+                                </div>
 
-                      <div class="container">
-                          <hr>
-                      </div>
+                                <div class="container">
+                                    <hr>
+                                </div>
 
-                      <div class="d-flex justify-content-around mb-2">
-                          
-                          <span style="color: #0072b1"><i style="font-size: 18pt;"
-                                  class="fa fa-heart-o" aria-hidden="true"></i>
-                          </span>
+                                <div class="d-flex justify-content-around mb-2">
 
-                          <span style="color: #0072b1"><i style="font-size: 18pt;"
-                              class="fa fa-share-alt" aria-hidden="true"></i>
-                          </span>
-                          
-                          <span style="color: #0072b1"><i style="font-size: 18pt;"
-                              class="fa fa-comment-o" aria-hidden="true"></i>
-                          </span>   
+                                    <span style="color: #0072b1"><i style="font-size: 18pt;" class="fa fa-heart-o"
+                                            aria-hidden="true"></i>
+                                    </span>
 
-              </div>
+                                    <span style="color: #0072b1"><i style="font-size: 18pt;" class="fa fa-share-alt"
+                                            aria-hidden="true"></i>
+                                    </span>
 
-                  </div>
-              </div>
-              <!--/Lista Temas-->
+                                    <span style="color: #0072b1"><i style="font-size: 18pt;" class="fa fa-comment-o"
+                                            aria-hidden="true"></i>
+                                    </span>
 
-              
+                                </div>
 
-             
+                            </div>
+                        </div>
+                        <!--/Lista Temas-->
 
-          </div>
 
-          </div>
 
-      </div>
-          
-          
-          <div class="col-md-3">
 
-              <div class="card card-body">
-                  <h5 class="d-flex align-items-center mb-2"><i class="fa fa-info-circle mr-2"></i>Nossas Conquistas
-                  </h5>
 
-                  <ul class="list-group list-group-flush ml-4">
-                      <span>
-                          <li class="t-c-li mt-2">Pessoas atendidas: qtd pessoas</li>
-                          <li class="t-c-li emp-li">Agentes de transformação: qtd agentes</li>
-                          <li class="t-c-li emp-li">Parceiros: qtd</li>
-                      </span>
-                  </ul>
-              </div>
+                    </div>
 
-              <div class="card card-body my-2">
-                  <h5 class="d-flex align-items-center mb-2"><i class="fa fa-info-circle mr-2"></i>Postagens
-                      em Alta</h5>
+                </div>
 
-                  <ul class="list-group list-group-flush ml-4">
-                      <li class="t-c-li mt-2" *ngFor='let item of listaPostagem | slice:-5'>
-                          <a>{{item.titulo}}</a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </div>
+            </div>
 
-      <!-- Modal -->
-      <div class="modal fade" id="publicacaoModal" tabindex="-1" aria-labelledby="publicacaoModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                  <div class="modal-header bg-azul text-center">
-                      <h5 class="modal-title text-white" id="publicacaoModalLabel">Nova Publicação</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                              aria-hidden="true">&times;</span></button>
-                  </div>
-                  <div class="modal-body">
-                      <div class="form-group text-center mb-2">
 
-                          <div class="row d-flex justify-content-between mx-0">
-                              <input [(ngModel)]="postagem.titulo" class="form-control col-5" type="text"
-                              placeholder="Titulo (mínimo de 4 caracteres)">
+            <div class="col-md-3">
 
-                              <select [(ngModel)]="idTema" class="form-select col-5" name="tema" id="tema"
-                              (change)="findByIdTema()" required>
-                              <option value="-1" disabled>Escolha um Tema</option>
-                              <option *ngFor='let tema of listaTemas' class="fw-bolder" value="{{tema.id}}">
-                                  {{tema.descricao}}</option>
-                          </select>
-                          </div>
-                      </div>
+                <div class="card card-body">
+                    <h5 class="d-flex align-items-center mb-2"><i class="fa fa-info-circle mr-2"></i>Nossas Conquistas
+                    </h5>
 
-                      <!--  <h5>Texto</h5>-->
+                    <ul class="list-group list-group-flush ml-4">
+                        <span>
+                            <li class="t-c-li mt-2">Pessoas atendidas: 200</li>
+                            <li class="t-c-li emp-li">Agentes de transformação: 5</li>
+                            <li class="t-c-li emp-li">Parceiros: 5</li>
+                        </span>
+                    </ul>
+                </div>
 
-                      <div class="form-group text-center texto mb-2">
+                <div class="card card-body my-2">
+                    <h5 class="d-flex align-items-center mb-2"><i class="fa fa-info-circle mr-2"></i>Postagens
+                        em Alta</h5>
 
-                          <textarea [(ngModel)]="postagem.texto" class="form-control bg-in"
-                              placeholder="Escreva sua publicação (mínimo de 10 caracteres)" name="textoPublicacao"
-                              id="" cols="30" rows="8"></textarea>
+                    <ul class="list-group list-group-flush ml-4">
+                        <li class="t-c-li mt-2" *ngFor='let item of listaPostagem | slice:-5'>
+                            <a>{{item.titulo}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-                      </div>
+        <!-- Modal -->
+        <div class="modal fade" id="publicacaoModal" tabindex="-1" aria-labelledby="publicacaoModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-azul text-center">
+                        <h5 class="modal-title text-white" id="publicacaoModalLabel">Nova Publicação</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group text-center mb-2">
 
-                      <!--  <h5>Link de video ou Foto</h5>-->
+                            <div class="row d-flex justify-content-between mx-0">
+                                <input [(ngModel)]="postagem.titulo" class="form-control col-5" type="text"
+                                    placeholder="Titulo (mínimo de 4 caracteres)">
 
-                      <div class="form-group text-center texto mb-2">
-                          <input [(ngModel)]="postagem.foto" (ngModelChange)="testandoIframe()" class="form-control w-100 bg-in" type="text" placeholder="Link de video ou Foto">
-                          <img onerror="this.style.display='none'" *ngIf='urlSafe' [src]="urlSafe" alt="" height="50%" width="50%">
-                          <iframe *ngIf='verificandoVideo(postagem.foto)' [src]="urlSafe" height="200px" width="200px" scrolling="no"></iframe>
-                      </div>
+                                <select [(ngModel)]="idTema" class="form-select col-5" name="tema" id="tema"
+                                    (change)="findByIdTema()" required>
+                                    <option value="-1" disabled>Escolha um Tema</option>
+                                    <option *ngFor='let tema of listaTemas' class="fw-bolder" value="{{tema.id}}">
+                                        {{tema.descricao}}</option>
+                                </select>
+                            </div>
+                        </div>
 
-                      <div class="form-group mx-3 my-3">                    
+                        <!--  <h5>Texto</h5>-->
 
-                      </div>
-                  </div>
-                  <div class="modal-footer">
+                        <div class="form-group text-center texto mb-2">
 
-                      <div class="col-md-12 d-flex justify-content-center">
-                          <button type="button" class="btn btn-post" (click)="publicar()"
-                              data-dismiss="modal">Publicar</button>
-                      </div>
+                            <textarea [(ngModel)]="postagem.texto" class="form-control bg-in"
+                                placeholder="Escreva sua publicação (mínimo de 10 caracteres)" name="textoPublicacao"
+                                id="" cols="30" rows="8"></textarea>
 
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="row" style="color:#f3f2ef">
-          .
-      </div>
-      <div class="row" style="color:#f3f2ef">
-          .
-      </div>
-  </div>
+                        </div>
+
+                        <!--  <h5>Link de video ou Foto</h5>-->
+
+                        <div class="form-group text-center texto mb-2">
+                            <input [(ngModel)]="postagem.foto" (ngModelChange)="testandoIframe()"
+                                class="form-control w-100 bg-in" type="text" placeholder="Link de video ou Foto">
+                            <img onerror="this.style.display='none'" *ngIf='urlSafe' [src]="urlSafe" alt="" height="50%"
+                                width="50%">
+                            <iframe *ngIf='verificandoVideo(postagem.foto)' [src]="urlSafe" height="200px" width="200px"
+                                scrolling="no"></iframe>
+                        </div>
+
+                        <div class="form-group mx-3 my-3">
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <div class="col-md-12 d-flex justify-content-center">
+                            <button type="button" class="btn btn-post" (click)="publicar()"
+                                data-dismiss="modal">Publicar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="color:#f3f2ef">
+            .
+        </div>
+        <div class="row" style="color:#f3f2ef">
+            .
+        </div>
+    </div>
 </div>
 
 <!-- Modal -->
@@ -429,4 +448,3 @@
       </div>
   </div>
 </div> -->
-

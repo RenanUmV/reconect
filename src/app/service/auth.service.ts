@@ -55,5 +55,11 @@ export class AuthService {
     
     return ok
   }
+
+  atualizar(usuario: UsuarioModel): Observable<UsuarioModel> {
+
+    return this.http.put<UsuarioModel>('https://reconect.herokuapp.com/usuarios/atualizar', usuario, this.token);
+
+  }
   
 }

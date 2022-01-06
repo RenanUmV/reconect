@@ -20,8 +20,7 @@ export class FeedComponent implements OnInit {
   tema: TemaModel = new TemaModel()
   listaTemas: TemaModel[]
   idTema: number
-  selecionarTema: string = 'todos'
-  
+  selecionarTema: string = 'todos'  
 
   nomeUsuario = environment.nome
   fotoUsuario = environment.foto
@@ -99,7 +98,7 @@ export class FeedComponent implements OnInit {
   }
 
   testandoIframe(){
-    console.log("Olá")
+    
     if (this.postagem.foto){
       this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.postagem.foto);  
     }else{
@@ -142,6 +141,6 @@ export class FeedComponent implements OnInit {
       return true;
     }
     return false;
-  }
+  }  
   
 }
