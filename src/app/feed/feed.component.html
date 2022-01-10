@@ -110,9 +110,9 @@
                                         </button>
                                         <div class="dropdown-menu">
                                             <button [routerLink]="['/postagem-delete', item.id]"
-                                                class="dropdown-item text-danger">Delete</button>
+                                                class="dropdown-item text-danger">Apagar</button>
                                             <button [routerLink]="['/postagem-edit', item.id]"
-                                                class="dropdown-item">Edit</button>
+                                                class="dropdown-item">Editar</button>
                                         </div>
                                     </div>
 
@@ -197,7 +197,7 @@
                                 <span class="mr-1">Postagens por tema:</span>
                                 <select [(ngModel)]="selecionarTema" (change)='findByIdTemaPostagens($event)'
                                     class="form-select" name="" id="">
-                                    <!-- <option value="todos">Todos</option> -->
+                                    <!-- <option value="todos">Todos</option> -->                                    
                                     <option *ngFor='let tema of listaTemas' class="fw-bolder" value="{{tema.id}}">
                                         {{tema.descricao}}</option>
                                 </select>
@@ -323,11 +323,11 @@
                                 <input [(ngModel)]="postagem.titulo" class="form-control col-5" type="text"
                                     placeholder="Titulo (mínimo de 4 caracteres)">
 
-                                <select [(ngModel)]="idTema" class="form-select col-5" name="tema" id="tema"
-                                    (change)="findByIdTema()" required>
-                                    <option value="-1" disabled>Escolha um Tema</option>
+                                <select [(ngModel)]="idTema" class="form-control col-5" name="tema" id="tema"
+                                    (change)="findByIdTema()" placeholder='Escolha um Tema'>
+                                    <option disabled selected>Escolha um Tema</option>
                                     <option *ngFor='let tema of listaTemas' class="fw-bolder" value="{{tema.id}}">
-                                        {{tema.descricao}}</option>
+                                    {{tema.descricao}}</option>
                                 </select>
                             </div>
                         </div>
