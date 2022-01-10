@@ -10,39 +10,39 @@
 
                 <div class="col-md-10">
 
-                    <h1 class="text-center font-t mb-5">Faça seu cadastro</h1>
+                    <h1 class="text-center font-t mb-5">Faça seu <span>cadastro</span></h1>
 
-                    <div class="row mb-4">
+                    <div class="form-group mb-3">
                         <label for="nome">Nome</label>
                         <input [(ngModel)]='usuario.nome' class="form-control" type="text" name="nome" id="nome" placeholder="Digite seu nome">
                     </div>
 
-                    <div class="row mb-4">
+                    <div class="form-group mb-3">
                         <label for="email">E-mail</label>
                         <input [(ngModel)]='usuario.usuario' class="form-control" type="email" name="email" id="email" placeholder="Digite seu e-mail">
                     </div>
 
-                    <div class="row mb-4">
+                    <div class="form-group mb-3">
                         <label for="foto">Link da foto</label>
                         <input [(ngModel)]='usuario.foto' class="form-control" type="text" name="foto" id="foto" placeholder="Insira o link da foto que deseja utilizar">
                     </div>
 
-                    <div class="row mb-4">
+                    <div class="form-group mb-3">
                         <label for="data">Data de nascimento</label>
                         <input [(ngModel)]='usuario.dataNascimento' class="form-control" type="date" name="data" id="data">
                     </div>
 
-                    <div class="row mb-4">
+                    <div class="form-group mb-3">
                         <label for="senha">Senha</label>
-                        <input (input) = 'confirmSenha($event)' class="form-control" type="password" name="senha" id="senha" placeholder="Digite sua senha">
+                        <input (input) = 'confirmSenha($event)' class="form-control" type="password" name="senha" id="senha" placeholder="Digite sua senha (Mínimo 9 caracteres)">
                     </div>
 
-                    <div class="row mb-4">
+                    <div class="rform-group mb-3">
                         <label for="confirmar-senha">Confirmar senha</label>
                         <input [(ngModel)]='usuario.senha' class="form-control" type="password" name="confirmar-senha" id="confirmar-senha" placeholder="Confirme sua senha">
                     </div>
 
-                    <div class="row mb-4">
+                    <div class="form-group mb-3">
                         <label for="tipo">Tipo de usuário</label>
                         <select class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
                             <option>Selecione um tipo de usuário:</option>
@@ -52,9 +52,18 @@
                         </select>
                     </div>
 
-                    <div class="row d-flex justify-content-center ">
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label text-justify" for="defaultCheck1">Li, entendi e concordo com os Termos e Condições de Uso e com a Política de Privacidade da <a data-toggle="modal" data-target="#termosDeUso" class='linkModal'>Reconect</a>
+                        </label>
+                    </div>
+
+                    <div class="row d-flex justify-content-center">
                         <button class="btn btn-danger btn-lg botao" type="submit" routerLink='/inicio'>Cancelar</button>
                         <button class="btn btn-success btn-lg botao" type="submit" (click)='cadastrar()'>Cadastrar</button>
+                    </div>
+                    <div class="row mb-3">
+                        <div></div>
                     </div>
 
                 </div>
@@ -63,4 +72,29 @@
 
     </div>
 
+</div>
+
+<div class="modal fade" id="termosDeUso" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Termos de Uso</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body text-justify">
+            <h2>Política Privacidade</h2>
+            <p>A sua privacidade é importante para nós. É política do RECONECT respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site <a href="https://reconect.netlify.app/#/inicio">RECONECT</a>, e outros sites que possuímos e operamos.</p> <p>Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço. Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado. </p>
+            <p>Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis ​​para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.</p>
+            <p>Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.</p>
+            <p>O nosso site pode ter links para sites externos que não são operados por nós. Esteja ciente de que não temos controle sobre o conteúdo e práticas desses sites e não podemos aceitar responsabilidade por suas respectivas <a href='https://politicaprivacidade.com' target='_BLANK'>políticas de privacidade</a>. </p> <p>Você é livre para recusar a nossa solicitação de informações pessoais, entendendo que talvez não possamos fornecer alguns dos serviços desejados.</p>
+            <p>O uso continuado de nosso site será considerado como aceitação de nossas práticas em torno de privacidade e informações pessoais. Se você tiver alguma dúvida sobre como lidamos com dados do usuário e informações pessoais, entre em contacto connosco.</p>
+            <h3>Compromisso do Usuário</h3>
+            <p>O usuário se compromete a fazer uso adequado dos conteúdos e da informação que o RECONECT oferece no site e com caráter enunciativo, mas não limitativo:</p> <ul> <li>A) Não se envolver em atividades que sejam ilegais ou contrárias à boa fé a à ordem pública;</li> <li>B) Não difundir propaganda ou conteúdo de natureza racista, xenofóbica, <a style='color: inherit !important; text-decoration:none !important;' href='https://jogoshoje.io'>jogos de hoje</a> ou azar, qualquer tipo de pornografia ilegal, de apologia ao terrorismo ou contra os direitos humanos;</li> <li>C) Não causar danos aos sistemas físicos (hardwares) e lógicos (softwares) do RECONECT, de seus fornecedores ou terceiros, para introduzir ou disseminar vírus informáticos ou quaisquer outros sistemas de hardware ou software que sejam capazes de causar danos anteriormente mencionados.</li> </ul> <h3>Mais informações</h3>
+            <p>Esperemos que esteja esclarecido e, como mencionado anteriormente, se houver algo que você não tem certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados, caso interaja com um dos recursos que você usa em nosso site.</p> <p>Esta política é efetiva a partir de <strong>Janeiro</strong>/<strong>2022</strong>.</p>
+        </div>
+
+        </div>
+    </div>
 </div>
