@@ -12,16 +12,16 @@
 
                             
                                 <div class="d-flex flex-column justify-content-start ml-2">                                    
-                                        <div>                                        
+                                        <div class="p-2">                                        
                                             <a class="text-secondary" routerLink='/feed'><i class="fa fa-arrow-left mr-2" aria-hidden="true"></i>Feed</a>    
                                         </div>
-                                        <div>
+                                        <div class="p-2">
                                             <a class="text-secondary" href="#perfil"><i class="fa fa-user mr-2 iperfil"></i>Perfil</a>
                                         </div>                                        
-                                        <div>
+                                        <div class="p-2">
                                             <a class="text-secondary " href="#postagens"><i class="fa fa-list mr-2 ipost" aria-hidden="true"></i>Postagens</a> 
                                         </div>
-                                        <div>                                            
+                                        <div class="p-2">                                            
                                             <a *ngIf="verificaPerfilUsuario()" class="text-secondary" [routerLink]="['/perfil', idUsuario]"><i class="fa fa-pencil mr-2" aria-hidden="true"></i>Editar</a>
                                         </div>
                                 </div>
@@ -98,9 +98,9 @@
                                         </button>
                                         <div class="dropdown-menu">
                                             <button [routerLink]="['/postagem-delete', usuario.id]"
-                                                class="dropdown-item text-danger">Delete</button>
+                                                class="dropdown-item text-danger">Apagar</button>
                                             <button [routerLink]="['/postagem-edit', usuario.id]"
-                                                class="dropdown-item">Edit</button>
+                                                class="dropdown-item">Editar</button>
                                         </div>
                                     </div>
 

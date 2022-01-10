@@ -57,7 +57,7 @@
               <div for="senha" id="alterarSenha">
                 <div class="form-group text-center texto">
                   <input (input)="confirmPassword($event)" class="form-control mt-2" type="password" name="senha"
-                    id="senha" placeholder="Digite a senha (Minimo 8 caracteres, uma letra maiuscula e um número)">
+                    id="senha" placeholder="Digite a senha (Minimo 9 caracteres)">
                 </div>
                 <!-- <label for="senha">Confirmar Senha</label> -->
                 <div for="confirmPassword" class="form-group text-center texto">
@@ -80,11 +80,11 @@
 
               <div class="mb-4">
                 <label for="tipo">Tipo de usuário</label>
-                <select  class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
-                  <option disabled>{{usuario.tipo}}</option>
-                  <option value="administrador">Administrador</option>
+                <select  class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)' placeholder='Selecione o tipo de usuario'>
+                  <option disabled selected>Selecione o tipo de usuario</option>
+                  <!-- <option value="administrador">Administrador</option> -->
                   <option value="colaborador">Colaborador</option>
-                  <option value="favorecido">Favorecido</option>
+                  <option value="favorecido">Beneficiado</option>
                 </select>
               </div>
 
